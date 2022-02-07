@@ -10,12 +10,12 @@ export const images = () => {
       })
     ))
     .pipe(app.plugins.newer(app.path.build.images))
-    .pipe(
-      app.plugins.if(
-        app.isBuild,
-        webp()
-      )
-    )
+    // .pipe(
+    //   app.plugins.if(
+    //     app.isBuild,
+    //     webp()
+    //   )
+    // )
     .pipe(
       app.plugins.if(
         app.isBuild,
@@ -39,7 +39,7 @@ export const images = () => {
         app.isBuild,
         imagemin({
           progressive: true,
-          svgoPlugins: [{removeViewBox: false}],
+          svgoPlugins: [{ removeViewBox: false }],
           interlaced: true,
           optimizationLevel: 3,
         })
